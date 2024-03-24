@@ -7,10 +7,11 @@ namespace LINQ
     {
         static void Main(string[] args)
         {
-
-            List<int> vec1 = Enumerable.Range(1, 3).ToList();
-            List<int> vec2 = Enumerable.Range(7, 3).ToList();
-            var ans = vec1.Zip(vec2, (a,b)=>a*b).Sum();
+            List<string> names = new List<string>
+            {
+                "a", "b", "c", "d"
+            };
+            var serializedNames = names.Select((x, index)=>(index+1).ToString()+" "+x).ToList();
 
 
 
