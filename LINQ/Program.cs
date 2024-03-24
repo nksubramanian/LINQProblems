@@ -7,13 +7,10 @@ namespace LINQ
     {
         static void Main(string[] args)
         {
-            List<int> numbers = new List<int> { 1, 2, 3, 4 };
-            int res = numbers.Aggregate((sum, val)=>sum+val);
-            var runningSum = numbers.Aggregate(new List<int>(), (acc, val) =>
-            {
-                acc.Add(val+acc.LastOrDefault());
-                return acc;
-            }).ToList();
+
+            List<int> vec1 = Enumerable.Range(1, 3).ToList();
+            List<int> vec2 = Enumerable.Range(7, 3).ToList();
+            var ans = vec1.Zip(vec2, (a,b)=>a*b).Sum();
 
 
 
