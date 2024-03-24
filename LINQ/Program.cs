@@ -7,15 +7,20 @@ namespace LINQ
     {
         static void Main(string[] args)
         {
-            List<string> names = new List<string>
+
+            List<int> numbers = Enumerable.Range(1, 10).ToList();
+            List<int> slidingWindow = new List<int> { 1, 1, 1 };
+            int windowCount = slidingWindow.Count;
+            var g = numbers.Select((num, i) =>
             {
-                "a", "b", "c", "d"
-            };
-            var serializedNames = names.Select((x, index)=>(index+1).ToString()+" "+x).ToList();
 
+                return num + i;
+            });
 
-
-
+            var gc = Enumerable.Range(0, numbers.Count).Select(i =>
+            {
+                return numbers.Skip(i).Zip(slidingWindow, (a, b) => a * b).Sum();
+            }).ToList();
 
         }
     }
