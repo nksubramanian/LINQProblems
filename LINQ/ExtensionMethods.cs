@@ -21,5 +21,17 @@ namespace LINQ
                         return ans;
                     });
         }
+
+
+        public static IEnumerable<T> Multiply<T>(this T a, IEnumerable<T> b)
+        {
+            return b.Select(x => {
+               dynamic temp=  (dynamic)x* (dynamic)a;
+                T ans = Convert.ChangeType(temp, typeof(T));
+                return ans;
+            });
+
+        }
+
     }
 }

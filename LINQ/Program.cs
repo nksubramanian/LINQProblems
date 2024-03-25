@@ -17,6 +17,8 @@ namespace LINQ
             var g =f.ToList();
             var h = Enumerable.Repeat(0, 10);
 
+            List<int> answer = 4.Multiply(a).ToList();
+
 
 
         }
