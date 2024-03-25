@@ -1,26 +1,23 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Net.WebSockets;
 
 namespace LINQ
 {
     internal class Program
     {
+
+        
+
         static void Main(string[] args)
         {
+            List<int> a = new List<int> { 1, 2, 3, 4, 5, 6, 7};
+            List<int> b = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
+            IEnumerable<int> f = a.Add(b);
+            var g =f.ToList();
+            var h = Enumerable.Repeat(0, 10);
 
-            List<int> numbers = Enumerable.Range(1, 10).ToList();
-            List<int> slidingWindow = new List<int> { 1, 1, 1 };
-            int windowCount = slidingWindow.Count;
-            var g = numbers.Select((num, i) =>
-            {
 
-                return num + i;
-            });
-
-            var gc = Enumerable.Range(0, numbers.Count).Select(i =>
-            {
-                return numbers.Skip(i).Zip(slidingWindow, (a, b) => a * b).Sum();
-            }).ToList();
 
         }
     }
